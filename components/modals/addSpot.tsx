@@ -3,6 +3,7 @@ import { Modal, View, Text, Pressable, TextInput, Image, StyleSheet } from "reac
 import MapView, { Marker } from "react-native-maps";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialIcons } from "@expo/vector-icons";
+import Feather from '@expo/vector-icons/Feather';
 
 type Spot = {
   imageUri: string;
@@ -107,7 +108,7 @@ export default function AddSpot({ visible, onClose, onSubmit }: AddSpotProps) {
                   <Image source={{ uri: imageUri }} style={styles.uploadedImage} />
                 ) : (
                   <View style={styles.uploadContent}>
-                    <MaterialIcons name="photo-camera" size={40} color="#6B7280" />
+                    <Feather name="camera" size={40} color="#6B7280" />
                     <Text style={styles.uploadText}>Click to upload your photo</Text>
                     <Text style={styles.uploadSubtext}>JPG, PNG up to 10MB</Text>
                   </View>
@@ -198,7 +199,7 @@ export default function AddSpot({ visible, onClose, onSubmit }: AddSpotProps) {
               </View>
             </View>
           )}
-
+ 
           <Pressable style={styles.closeButton} onPress={() => { resetModal(); onClose(); }}>
             <MaterialIcons name="close" size={20} color="#6B7280" />
           </Pressable>
@@ -234,6 +235,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "700",
     marginBottom: 8,
+    color: "#333333",
   },
   stepBarContainer: {
     flexDirection: "row",
@@ -256,7 +258,7 @@ const styles = StyleSheet.create({
     height: 300,
     backgroundColor: "#ffffff",
     borderWidth: 2,
-    borderColor: "#6B7280",
+    borderColor: "#CCCCCC",
     borderStyle: "dashed",
     justifyContent: "center",
     alignItems: "center",
@@ -273,13 +275,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 16,
     fontWeight: "600",
-    color: "#000000",
+    color: "#6B7280",
     textAlign: "center",
   },
   uploadSubtext: {
     marginTop: 4,
     fontSize: 12,
-    color: "#888888",
+    color: "#bbbbbb",
     textAlign: "center",
   },
   uploadedImage: {

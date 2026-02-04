@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type ButtonProps = {
-  title: string;
+  title?: string;
   onPress: () => void;
   Icon?: any;
   iconName?: string;
@@ -17,9 +17,10 @@ export default function Button({
     <Pressable style={styles.button} onPress={onPress}>
       <View style={styles.content}>
         {Icon && iconName && (
-          <Icon name={iconName} size={20} color="#6B7280" style={styles.icon} />
+          <Icon name={iconName} size={20} color="#6B7280" />
         )}
-        <Text style={styles.text}>{title}</Text>
+        
+        {title && <Text style={styles.text}>{title}</Text>}
       </View>
     </Pressable>
   );
@@ -50,8 +51,6 @@ const styles = StyleSheet.create({
     color: "#6B7280",
     fontSize: 14,
     fontWeight: "600",
-  },
-  icon: {
-    marginRight: 6,
+    marginLeft: 6,
   },
 });
