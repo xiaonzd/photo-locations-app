@@ -3,7 +3,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MapScreen from "./components/screens/map";
 import Profile from "./components/screens/profile";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  map: undefined;
+  profile: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import MapView, { Marker } from "react-native-maps";
-import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
-import Button from "../ui/button";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import MapView, { Marker } from "react-native-maps";
+import type { RootStackParamList } from "../../App";
 import AddSpot from "../modals/addSpot";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Profile from "./profile";
+import Button from "../ui/button";
 
 // Spot type
 type Spot = {
@@ -20,7 +20,8 @@ type Spot = {
 };
 
 export default function MapScreen() {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "map">>();
 
   const [addSpotOpen, setAddSpotOpen] = useState(false);
   const [spots, setSpots] = useState<Spot[]>([]);
@@ -44,7 +45,7 @@ export default function MapScreen() {
               title={spot.title || "Spot"}
               description={spot.description || ""}
             />
-          ) : null
+          ) : null,
         )}
       </MapView>
 
@@ -56,10 +57,7 @@ export default function MapScreen() {
           Icon={MaterialIcons}
           iconName="search"
         />
-        <Button
-          title="PFP"
-          onPress={() => navigation.navigate("profile")}
-        />
+        <Button title="PFP" onPress={() => navigation.navigate("profile")} />
       </View>
 
       {/* Footer */}
@@ -82,7 +80,7 @@ export default function MapScreen() {
       <AddSpot
         visible={addSpotOpen}
         onClose={() => setAddSpotOpen(false)}
-        onSubmit={(spot) => setSpots(prev => [...prev, spot])}
+        onSubmit={(spot) => setSpots((prev) => [...prev, spot])}
       />
     </View>
   );

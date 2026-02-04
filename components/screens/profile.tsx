@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Image, Text, View, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { MaterialIcons } from "@expo/vector-icons";
 import Button from "../ui/button";
+import type { RootStackParamList } from "../../App";
+
+type ProfileNavProp = NativeStackNavigationProp<RootStackParamList, "profile">;
 
 export default function ProfileHeader() {
-    const navigation = useNavigation();
+    const navigation = useNavigation<ProfileNavProp>();
 
     return (
         <View style={styles.container}>
