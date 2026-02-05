@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "row",
-    // iOS shadow
-    shadowColor: "#6B7280",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.5,
-    shadowRadius: 1,
-    // Android shadow
-    elevation: 2,
+  // iOS shadow
+  shadowColor: "#6B7280",
+  shadowOffset: { width: 0, height: 1 },
+  shadowOpacity: 0.5,
+  shadowRadius: 1,
+  // Android shadow
+  elevation: 2,
   },
   text: {
     fontFamily: "Segoe UI",
